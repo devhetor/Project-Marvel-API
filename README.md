@@ -64,6 +64,11 @@ Some routes are still being implemented on the front-end! ⚙️
 - Allan Ogawa
 - Heitor Brandolin
 
+### Projects repositories
+
+- Back-end: https://github.com/AllanOgawa/API-Marvel---NestJs.git
+- Front-end: https://github.com/devhetor/projeto-marvel-api-frontEnd.git
+
 ### License
 
 All images of characters and comics used in this project are owned by @Marvel and @Disney.

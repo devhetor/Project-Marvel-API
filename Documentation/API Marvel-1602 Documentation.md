@@ -220,13 +220,11 @@ Request:
 POST /characters
 
 {
-		"id": 11,
-		"name": "name_test",
-		"description": "description_test",
-		"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/3/60/53176bb096d17.jpg",
-		"comics": [
-			
-		]
+	"id": 11,
+	"name": "name_test",
+	"description": "description_test",
+	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/3/60/53176bb096d17.jpg",
+	"comics": []
 }
 ```
 
@@ -269,8 +267,8 @@ Request:
 PUT /characters
 
 {
-		"name": "test_name_update",
-		"description": "test update"
+	"name": "test_name_update",
+	"description": "test update"
 }
 ```
 
@@ -504,12 +502,12 @@ Request:
 POST /creator
 
 {
-		"id": 4,
-		"firstName": "author_firstName",
-		"lastName": "author_lastName",
-		"fullName": "author_fullName",
-		"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg",
-		"comics": [
+	"id": 4,
+	"firstName": "author_firstName",
+	"lastName": "author_lastName",
+	"fullName": "author_fullName",
+	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg",
+	"comics": [
 	],
 	"role": "author_role"
 }
@@ -557,9 +555,9 @@ Request:
 ```json
 PUT /characters
 {
-		"firstName": "update_test",
-		"lastName": "update_test",
-		"fullName": "Update test"
+	"firstName": "update_test",
+	"lastName": "update_test",
+	"fullName": "Update test"
 }
 ```
 
@@ -815,13 +813,13 @@ Request:
 POST /creator
 
 {
-		"id": 111,
-		"issueNumber": 9,
-		"title": "1602 (2012) #8",
-		"description": "CLIMATIC last issue! Secrets revealed! Mysteries explained! A mighty sacrifice! Worlds live! Worlds die! Heroes make choices! And so do villains...",
-		"onsaleDate": "2004-03-31T05:00:00.000Z",
-		"price": 3.99,
-		"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/5/c0/5aa052106f9d3.jpg"
+	"id": 111,
+	"issueNumber": 9,
+	"title": "1602 (2012) #8",
+	"description": "CLIMATIC last issue! Secrets revealed! Mysteries explained! A mighty sacrifice! Worlds live! Worlds die! Heroes make choices! And so do villains...",
+	"onsaleDate": "2004-03-31T05:00:00.000Z",
+	"price": 3.99,
+	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/5/c0/5aa052106f9d3.jpg"
 }
 ```
 
