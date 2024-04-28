@@ -45,7 +45,7 @@ Returns a JSON object with the following properties:
     - `name`: The name of the character.
     - `description`: A brief description of the character.
     - `thumbnail`: Thumbnail URL of the character.
-    - `comicsId`: A list of identifiers of the comics in which the character appears.
+    - `comics`: A list of identifiers of the comics in which the character appears.
     - `__v`: Version of the document in the database.
 
 ### Example
@@ -61,25 +61,30 @@ Response:
 ```json
 [
   {
-    "comics": [],
-    "_id": "66217f73b7e5033cbc40cb2d",
-    "id": 1009281,
-    "name": "Doctor Doom",
-    "description": "",
-    "thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/3/60/53176bb096d17.jpg",
-    "comicsId": [148, 50114, 20630],
-    "__v": 0
-  },
-  {
-    "comics": [],
-    "_id": "66217f73b7e5033cbc40cb30",
-    "id": 1009417,
-    "name": "Magneto",
-    "description": "",
-    "thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/3/b0/5261a7e53f827.jpg",
-    "comicsId": [145, 20630],
-    "__v": 0
-  },
+		"_id": "662eac920eeeb1009bdfbb86",
+		"id": 1009281,
+		"name": "Doctor Doom",
+		"description": "",
+		"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/3/60/53176bb096d17.jpg",
+		"comics": [
+			"662eac910eeeb1009bdfbb5b",
+			"662eac910eeeb1009bdfbb61",
+			"662eac910eeeb1009bdfbb64"
+		],
+		"__v": 0
+	},
+	{
+		"_id": "662eac920eeeb1009bdfbb8b",
+		"id": 1009417,
+		"name": "Magneto",
+		"description": "",
+		"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/3/b0/5261a7e53f827.jpg",
+		"comics": [
+			"662eac910eeeb1009bdfbb52",
+			"662eac910eeeb1009bdfbb64"
+		],
+		"__v": 0
+	},
   ...
  ]
 ```
@@ -98,7 +103,7 @@ Returns a JSON object with the following properties:
     - `name`: The name of the character.
     - `description`: A brief description of the character.
     - `thumbnail`: Thumbnail URL of the character.
-    - `comicsId`: A list of identifiers of the comics in which the character appears.
+    - `comics`: A list of identifiers of the comics in which the character appears.
     - `__v`: Version of the document in the database.
 
 ### Example
@@ -106,13 +111,37 @@ Returns a JSON object with the following properties:
 Request:
 
 ```
-GET /characters/1009417/comics
+GET /characters/1010697/comics
 ```
 
 Response:
 
 ```json
-
+[
+	{
+		"_id": "662eac910eeeb1009bdfbb4f",
+		"id": 440,
+		"issueNumber": 8,
+		"title": "1602 (2003) #8",
+		"description": "CLIMATIC last issue! Secrets revealed! Mysteries explained! A mighty sacrifice! Worlds live! Worlds die! Heroes make choices! And so do villains...",
+		"onsaleDate": "2004-03-31T05:00:00.000Z",
+		"price": 3.99,
+		"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/5/c0/5aa052106f9d3.jpg",
+		"__v": 0
+	},
+	{
+		"_id": "662eac910eeeb1009bdfbb52",
+		"id": 145,
+		"issueNumber": 7,
+		"title": "1602 (2003) #7",
+		"description": "Secrets are revealed and coffins are closed as two of our 17th-century Marvel heroes lose their lives in the penultimate chapter to this major, best-selling limited series event!\r\n32 PGS./MARVEL PSR...$3.50",
+		"onsaleDate": "2004-02-11T05:00:00.000Z",
+		"price": 3.5,
+		"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/c/90/568e6b71aabd8.jpg",
+		"__v": 0
+	},
+	...
+]
 ```
 
 ### `GET /characters/id`
@@ -129,7 +158,7 @@ Returns a JSON object with the following properties:
     - `name`: The name of the character.
     - `description`: A brief description of the character.
     - `thumbnail`: Thumbnail URL of the character.
-    - `comicsId`: A list of identifiers of the comics in which the character appears.
+    - `comics`: A list of identifiers of the comics in which the character appears.
     - `__v`: Version of the document in the database.
 
 ### Example
@@ -144,16 +173,15 @@ Response:
 
 ```json
 {
-	"comics": [],
-	"_id": "66217f73b7e5033cbc40cb2d",
+	"_id": "662eac920eeeb1009bdfbb86",
 	"id": 1009281,
 	"name": "Doctor Doom",
 	"description": "",
 	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/3/60/53176bb096d17.jpg",
-	"comicsId": [
-		148,
-		50114,
-		20630
+	"comics": [
+		"662eac910eeeb1009bdfbb5b",
+		"662eac910eeeb1009bdfbb61",
+		"662eac910eeeb1009bdfbb64"
 	],
 	"__v": 0
 }
@@ -197,7 +225,7 @@ Parameters must be sent in the body in JSON format.
 - `name`: The name of the character.
 - `description`: A brief description of the character.
 - `thumbnail`: Thumbnail URL of the character.
-- `comicsId`: A list of identifiers of the comics in which the character appears.
+- `comics`: A list of identifiers of the comics in which the character appears.
 
 ### Response
 
@@ -209,7 +237,7 @@ Returns a JSON object with the following properties:
     - `name`: The name of the character.
     - `description`: A brief description of the character.
     - `thumbnail`: Thumbnail URL of the character.
-    - `comicsId`: A list of identifiers of the comics in which the character appears.
+    - `comics`: A list of identifiers of the comics in which the character appears.
     - `__v`: Version of the document in the database.
 
 ### Example
@@ -224,13 +252,14 @@ POST /characters
 	"name": "name_test",
 	"description": "description_test",
 	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/3/60/53176bb096d17.jpg",
-	"comics": []
+	"comics": [
+	]
 }
 ```
 
 Response:
 
-```html
+```json
 {
 	"id": 11,
 	"name": "name_test",
@@ -253,18 +282,27 @@ Parameters must be sent in the body in JSON format.
 - `name`(optional): The name of the character.
 - `description`(optional): A brief description of the character.
 - `thumbnail`(optional): Thumbnail URL of the character.
-- `comicsId`(optional): A list of identifiers of the comics in which the character appears.
+- `comics`(optional): A list of identifiers of the comics in which the character appears.
 
 ### Response
 
-Returns an HTML status
+Returns a JSON object with the following properties:
+
+- `results`: An array of objects of the character type, each with the following properties:
+    - `_id`: The unique identifier of the record in the API database.
+    - `id`: The unique identifier of the character.
+    - `name`: The name of the character.
+    - `description`: A brief description of the character.
+    - `thumbnail`: Thumbnail URL of the character.
+    - `comics`: A list of identifiers of the comics in which the character appears.
+    - `__v`: Version of the document in the database.
 
 ### Example
 
 Request:
 
 ```json
-PUT /characters
+PUT /characters/11
 
 {
 	"name": "test_name_update",
@@ -274,7 +312,17 @@ PUT /characters
 
 Response:
 
-![Untitled](https://http.cat/images/200.jpg)
+```json
+{
+	"_id": "662eb6a20eeeb1009bdfbbf8",
+	"id": 11,
+	"name": "test_name_update",
+	"description": "test update",
+	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/3/60/53176bb096d17.jpg",
+	"comics": [],
+	"__v": 0
+}
+```
 
 ### `DELETE /characters/id`
 
@@ -298,7 +346,17 @@ DELETE /characters/id
 
 Response:
 
-![Untitled](https://http.cat/images/200.jpg)
+```json
+{
+	"_id": "662eb6a20eeeb1009bdfbbf8",
+	"id": 11,
+	"name": "test_name_update",
+	"description": "test update",
+	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/3/60/53176bb096d17.jpg",
+	"comics": [],
+	"__v": 0
+}
+```
 
 ## Creators
 
@@ -311,14 +369,14 @@ Returns a list with the creators of the comics.
 Returns a JSON object with the following properties:
 
 - `results`: An array of objects of the creator type, each with the following properties:
-    - `id`: The unique identifier of the creator.
     - `_id`: The unique identifier of the record in the API database.
+    - `id`: The unique identifier of the creator.
     - `firstName`: The first name of the author
     - `lastName`: The last name of the author.
     - `fullName`: The full name of the author.
     - `thumbnail`: Thumbnail URL of the author.
     - `role`: The role or function of the creator in comics.
-    - `comicsId`: A list of identifiers of the comics in which the character appears.
+    - `comics`: A list of identifiers of the comics in which the character appears.
     - `__v`: Version of the document in the database.
 
 ### Example
@@ -334,40 +392,38 @@ Response:
 ```json
 [
 	{
-		"comics": [],
-		"_id": "66217f72b7e5033cbc40cb23",
+		"_id": "662eac920eeeb1009bdfbb6e",
 		"id": 567,
 		"firstName": "Neil",
 		"lastName": "Gaiman",
 		"fullName": "Neil Gaiman",
 		"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg",
 		"role": "writer",
-		"comicsId": [
-			440,
-			145,
-			146,
-			147,
-			148,
-			377
+		"comics": [
+			"662eac910eeeb1009bdfbb4f",
+			"662eac910eeeb1009bdfbb52",
+			"662eac910eeeb1009bdfbb55",
+			"662eac910eeeb1009bdfbb58",
+			"662eac910eeeb1009bdfbb5b",
+			"662eac910eeeb1009bdfbb5e"
 		],
 		"__v": 0
 	},
 	{
-		"comics": [],
-		"_id": "66217f72b7e5033cbc40cb26",
+		"_id": "662eac920eeeb1009bdfbb77",
 		"id": 175,
 		"firstName": "Andy",
 		"lastName": "Kubert",
 		"fullName": "Andy Kubert",
 		"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/f/60/4bc468f4eca4c.jpg",
 		"role": "penciller",
-		"comicsId": [
-			440,
-			145,
-			146,
-			147,
-			148,
-			377
+		"comics": [
+			"662eac910eeeb1009bdfbb4f",
+			"662eac910eeeb1009bdfbb52",
+			"662eac910eeeb1009bdfbb55",
+			"662eac910eeeb1009bdfbb58",
+			"662eac910eeeb1009bdfbb5b",
+			"662eac910eeeb1009bdfbb5e"
 		],
 		"__v": 0
 	},
@@ -395,7 +451,7 @@ Returns a JSON object with the following properties:
     - `fullName`: The full name of the author.
     - `thumbnail`: Thumbnail URL of the author.
     - `role`: The role or function of the creator in comics.
-    - `comicsId`: A list of identifiers of the comics in which the character appears.
+    - `comics`: A list of identifiers of the comics in which the character appears.
     - `__v`: Version of the document in the database.
 
 ### Example
@@ -410,21 +466,20 @@ Response:
 
 ```json
 {
-	"comics": [],
-	"_id": "66217f72b7e5033cbc40cb23",
+	"_id": "662eac920eeeb1009bdfbb6e",
 	"id": 567,
 	"firstName": "Neil",
 	"lastName": "Gaiman",
 	"fullName": "Neil Gaiman",
 	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg",
 	"role": "writer",
-	"comicsId": [
-		440,
-		145,
-		146,
-		147,
-		148,
-		377
+	"comics": [
+		"662eac910eeeb1009bdfbb4f",
+		"662eac910eeeb1009bdfbb52",
+		"662eac910eeeb1009bdfbb55",
+		"662eac910eeeb1009bdfbb58",
+		"662eac910eeeb1009bdfbb5b",
+		"662eac910eeeb1009bdfbb5e"
 	],
 	"__v": 0
 }
@@ -439,14 +494,14 @@ Returns data for a specific creator.
 Returns a JSON object with the following properties:
 
 - `results`: An array of objects of the creator type, each with the following properties:
-    - `id`: The unique identifier of the creator.
     - `_id`: The unique identifier of the record in the API database.
-    - `firstName`: The first name of the author
-    - `lastName`: The last name of the author.
-    - `fullName`: The full name of the author.
+    - `id`: The unique identifier of the creator.
+    - `issueNumber`: The issue number of the comic.
+    - **`title`: The full title of the comic's edition.**
+    - **`description`**: A description of the comic's edition.
+    - `onsaleDate`: The release date of the comic book edition.
+    - `price`: The price of the comic edition.
     - `thumbnail`: Thumbnail URL of the character.
-    - `role`: The role or function of the creator in comics.
-    - `comicsId`: A list of identifiers of the comics in which the character appears.
     - `__v`: Version of the document in the database.
 
 ### Example
@@ -460,7 +515,31 @@ GET /creators/567/comics
 Response:
 
 ```json
-
+[
+	{
+		"_id": "662eac910eeeb1009bdfbb4f",
+		"id": 440,
+		"issueNumber": 8,
+		"title": "1602 (2003) #8",
+		"description": "CLIMATIC last issue! Secrets revealed! Mysteries explained! A mighty sacrifice! Worlds live! Worlds die! Heroes make choices! And so do villains...",
+		"onsaleDate": "2004-03-31T05:00:00.000Z",
+		"price": 3.99,
+		"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/5/c0/5aa052106f9d3.jpg",
+		"__v": 0
+	},
+	{
+		"_id": "662eac910eeeb1009bdfbb52",
+		"id": 145,
+		"issueNumber": 7,
+		"title": "1602 (2003) #7",
+		"description": "Secrets are revealed and coffins are closed as two of our 17th-century Marvel heroes lose their lives in the penultimate chapter to this major, best-selling limited series event!\r\n32 PGS./MARVEL PSR...$3.50",
+		"onsaleDate": "2004-02-11T05:00:00.000Z",
+		"price": 3.5,
+		"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/c/90/568e6b71aabd8.jpg",
+		"__v": 0
+	},
+	...
+]
 ```
 
 ### `POST /creators`
@@ -476,8 +555,8 @@ Parameters must be sent in the body in JSON format.
 - `lastName`: The last name of the author.
 - `fullName`: The full name of the author.
 - `thumbnail`: Thumbnail URL of the author.
+- `comics`: A list of identifiers of the comics in which the character appears.
 - `role`: The role or function of the creator in comics.
-- `comicsId`: A list of identifiers of the comics in which the character appears.
 
 ### Response
 
@@ -491,7 +570,7 @@ Returns a JSON object with the following properties:
     - `fullName`: The full name of the author.
     - `thumbnail`: Thumbnail URL of the author.
     - `role`: The role or function of the creator in comics.
-    - `comicsId`: A list of identifiers of the comics in which the character appears.
+    - `comics`: A list of identifiers of the comics in which the character appears.
     - `__v`: Version of the document in the database.
 
 ### Example
@@ -515,16 +594,16 @@ POST /creator
 
 Response:
 
-```html
+```json
 {
 	"id": 4,
 	"firstName": "author_firstName",
 	"lastName": "author_lastName",
-	"fullName": "Allan Ogawa",
+	"fullName": "author_fullName",
 	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg",
 	"role": "author_role",
 	"comics": [],
-	"_id": "662c7993ce3e0efec3d98595",
+	"_id": "662eb8930eeeb1009bdfbbfe",
 	"__v": 0
 }
 ```
@@ -546,7 +625,18 @@ Parameters must be sent in the body in JSON format.
 
 ### Response
 
-Returns an HTML status
+Returns a JSON object with the following properties:
+
+- `results`: An array of objects of the character type, each with the following properties:
+    - `id`: The unique identifier of the creator.
+    - `_id`: The unique identifier of the record in the API database.
+    - `firstName`: The first name of the author
+    - `lastName`: The last name of the author.
+    - `fullName`: The full name of the author.
+    - `thumbnail`: Thumbnail URL of the author.
+    - `role`: The role or function of the creator in comics.
+    - `comicsId`: A list of identifiers of the comics in which the character appears.
+    - `__v`: Version of the document in the database.
 
 ### Example
 
@@ -563,7 +653,19 @@ PUT /characters
 
 Response:
 
-![Untitled](https://http.cat/images/200.jpg)
+```json
+{
+	"_id": "662eb26e0eeeb1009bdfbbe7",
+	"id": 4,
+	"firstName": "update_test",
+	"lastName": "update_test",
+	"fullName": "Update test",
+	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg",
+	"role": "penciller",
+	"comics": [],
+	"__v": 0
+}
+```
 
 ### `DELETE /creators/id`
 
@@ -575,19 +677,40 @@ Delete a creator by id.
 
 ### Response
 
-Returns an HTML status
+- `results`: An array of objects of the character type, each with the following properties:
+    - `id`: The unique identifier of the creator.
+    - `_id`: The unique identifier of the record in the API database.
+    - `firstName`: The first name of the author
+    - `lastName`: The last name of the author.
+    - `fullName`: The full name of the author.
+    - `thumbnail`: Thumbnail URL of the author.
+    - `role`: The role or function of the creator in comics.
+    - `comicsId`: A list of identifiers of the comics in which the character appears.
+    - `__v`: Version of the document in the database.
 
 ### Example
 
 Request:
 
 ```json
-DELETE /creators/id
+DELETE /creators/4
 ```
 
 Response:
 
-![Untitled](https://http.cat/images/200.jpg)
+```json
+{
+	"_id": "662eb26e0eeeb1009bdfbbe7",
+	"id": 4,
+	"firstName": "Test",
+	"lastName": "Testwww",
+	"fullName": "Test Testwww",
+	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg",
+	"role": "penciller",
+	"comics": [],
+	"__v": 0
+}
+```
 
 ## Comics
 
@@ -628,7 +751,7 @@ Response:
 ```json
 [
 	{
-		"_id": "66217f72b7e5033cbc40cb0a",
+		"_id": "662eac910eeeb1009bdfbb4f",
 		"id": 440,
 		"issueNumber": 8,
 		"title": "1602 (2003) #8",
@@ -639,7 +762,7 @@ Response:
 		"__v": 0
 	},
 	{
-		"_id": "66217f72b7e5033cbc40cb0d",
+		"_id": "662eac910eeeb1009bdfbb52",
 		"id": 145,
 		"issueNumber": 7,
 		"title": "1602 (2003) #7",
@@ -684,14 +807,14 @@ Returns data for a specific comic.
 Returns a JSON object with the following properties:
 
 - `results`: An array of objects of the character type, each with the following properties:
-    - `id`: The unique identifier of the creator.
     - `_id`: The unique identifier of the record in the API database.
-    - `firstName`: The first name of the author
-    - `lastName`: The last name of the author.
-    - `fullName`: The full name of the author.
-    - `thumbnail`: Thumbnail URL of the author.
-    - `role`: The role or function of the creator in comics.
-    - `comicsId`: A list of identifiers of the comics in which the character appears.
+    - `id`: The unique identifier of the creator.
+    - `issueNumber`: The issue number of the comic.
+    - **`title`: The full title of the comic's edition.**
+    - **`description`**: A description of the comic's edition.
+    - `onsaleDate`: The release date of the comic book edition.
+    - `price`: The price of the comic edition.
+    - `thumbnail`: Thumbnail URL of the character.
     - `__v`: Version of the document in the database.
 
 ### Example
@@ -706,7 +829,7 @@ Response:
 
 ```json
 {
-	"_id": "66217f72b7e5033cbc40cb16",
+	"_id": "662eac910eeeb1009bdfbb5b",
 	"id": 148,
 	"issueNumber": 4,
 	"title": "1602 (2003) #4",
@@ -736,6 +859,70 @@ Returns a list of JSON object with the following properties:
     - `name`: The name of the character.
     - `description`: A brief description of the character.
     - `thumbnail`: Thumbnail URL of the character.
+    - `comics`: A list of identifiers of the comics in which the character appears.
+    - `__v`: Version of the document in the database.
+
+### Example
+
+Request:
+
+```json
+GET /comics/1/characters
+```
+
+Response:
+
+```json
+[
+  {
+	"_id": "662eac920eeeb1009bdfbb86",
+	"id": 1009281,
+	"name": "Doctor Doom",
+	"description": "",
+	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/3/60/53176bb096d17.jpg",
+	"comics": [
+		"662eac910eeeb1009bdfbb5b",
+		"662eac910eeeb1009bdfbb61",
+		"662eac910eeeb1009bdfbb64"
+	],
+	"__v": 0
+	},
+	{
+	"_id": "662eac920eeeb1009bdfbb8b",
+	"id": 1009417,
+	"name": "Magneto",
+	"description": "",
+	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/3/b0/5261a7e53f827.jpg",
+	"comics": [
+		"662eac910eeeb1009bdfbb52",
+		"662eac910eeeb1009bdfbb64"
+	],
+	"__v": 0
+	},
+  ...
+ ]
+```
+
+### `GET /comics/id/characters`
+
+Returns creators by comic id.
+
+### Parameters
+
+- `id` : The unique identifier.
+
+### Response
+
+Returns a list of JSON object with the following properties:
+
+- `results`: An array of objects of the character type, each with the following properties:
+    - `id`: The unique identifier of the creator.
+    - `_id`: The unique identifier of the record in the API database.
+    - `firstName`: The first name of the author
+    - `lastName`: The last name of the author.
+    - `fullName`: The full name of the author.
+    - `thumbnail`: Thumbnail URL of the author.
+    - `role`: The role or function of the creator in comics.
     - `comicsId`: A list of identifiers of the comics in which the character appears.
     - `__v`: Version of the document in the database.
 
@@ -744,35 +931,51 @@ Returns a list of JSON object with the following properties:
 Request:
 
 ```json
-GET /comics/148/characters
+GET /comics/7/creators
 ```
 
 Response:
 
 ```json
 [
-  {
-    "comics": [],
-    "_id": "66217f73b7e5033cbc40cb2d",
-    "id": 1009281,
-    "name": "Doctor Doom",
-    "description": "",
-    "thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/3/60/53176bb096d17.jpg",
-    "comicsId": [148, 50114, 20630],
-    "__v": 0
-  },
-  {
-    "comics": [],
-    "_id": "66217f73b7e5033cbc40cb30",
-    "id": 1009417,
-    "name": "Magneto",
-    "description": "",
-    "thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/3/b0/5261a7e53f827.jpg",
-    "comicsId": [145, 20630],
-    "__v": 0
-  },
-  ...
- ]
+	{
+		"_id": "662eac920eeeb1009bdfbb6e",
+		"id": 567,
+		"firstName": "Neil",
+		"lastName": "Gaiman",
+		"fullName": "Neil Gaiman",
+		"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg",
+		"role": "writer",
+		"comics": [
+			"662eac910eeeb1009bdfbb4f",
+			"662eac910eeeb1009bdfbb52",
+			"662eac910eeeb1009bdfbb55",
+			"662eac910eeeb1009bdfbb58",
+			"662eac910eeeb1009bdfbb5b",
+			"662eac910eeeb1009bdfbb5e"
+		],
+		"__v": 0
+	},
+	{
+		"_id": "662eac920eeeb1009bdfbb77",
+		"id": 175,
+		"firstName": "Andy",
+		"lastName": "Kubert",
+		"fullName": "Andy Kubert",
+		"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/f/60/4bc468f4eca4c.jpg",
+		"role": "penciller",
+		"comics": [
+			"662eac910eeeb1009bdfbb4f",
+			"662eac910eeeb1009bdfbb52",
+			"662eac910eeeb1009bdfbb55",
+			"662eac910eeeb1009bdfbb58",
+			"662eac910eeeb1009bdfbb5b",
+			"662eac910eeeb1009bdfbb5e"
+		],
+		"__v": 0
+	},
+	...
+]
 ```
 
 ### `POST /comics`
@@ -802,7 +1005,7 @@ Returns a JSON object with the following properties:
         - `name`: The name of the character.
         - `description`: A brief description of the character.
         - `thumbnail`: Thumbnail URL of the character.
-        - `comicsId`: A list of identifiers of the comics in which the character appears.
+        - `comics`: A list of identifiers of the comics in which the character appears.
         - `__v`: Version of the document in the database.
 
 ### Example
@@ -834,7 +1037,7 @@ Response:
 	"onsaleDate": "2004-03-31T05:00:00.000Z",
 	"price": 3.99,
 	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/5/c0/5aa052106f9d3.jpg",
-	"_id": "662e748223b2fc0769b3b94e",
+	"_id": "662eb4d90eeeb1009bdfbbef",
 	"__v": 0
 }
 ```
@@ -865,26 +1068,14 @@ Request:
 ```json
 PUT /comics/9
 {
-		"title": "title_test",
-		"price": 13.99
-	}
+	"title": "title_test",
+	"price": 13.99
+}
 ```
 
 Response:
 
-```json
-{
-	"_id": "662e748223b2fc0769b3b94e",
-	"id": 111,
-	"issueNumber": 9,
-	"title": "999999",
-	"description": "CLIMATIC last issue! Secrets revealed! Mysteries explained! A mighty sacrifice! Worlds live! Worlds die! Heroes make choices! And so do villains...",
-	"onsaleDate": "2004-03-31T05:00:00.000Z",
-	"price": 13.99,
-	"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/5/c0/5aa052106f9d3.jpg",
-	"__v": 0
-}
-```
+![https://http.cat/images/200.jpg](https://http.cat/images/200.jpg)
 
 ### `DELETE /comics/id`
 
@@ -908,7 +1099,7 @@ DELETE /comics/id
 
 Response:
 
-![Untitled](https://http.cat/images/200.jpg)
+![Untitled](API%20Marvel-1602%20Documentation%2066cfc43a55b042629e66ffca0f0d7fd9/Untitled.png)
 
 # Errors
 
