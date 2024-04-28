@@ -29,6 +29,52 @@ The base URL for all API requests is:
 
 # Endpoints
 
+## Series
+
+### `GET /series`
+
+Returns a list of all series from all the comics.
+
+### Response
+
+Returns a JSON object with the following properties:
+
+- `results`: An array of objects of the character type, each with the following properties:
+    - `id`: The unique identifier of the character.
+    - `_id`: The unique identifier of the record in the API database.
+    - `title`: The title of the comic series.
+    - `description`: A brief description of the character.
+    - **`startYear`: The year of the series' initial release.**
+    - **`endYear`:** The final release year of the series (if applicable).
+    - `thumbnail`: Thumbnail URL of the character.
+    - startYear: A list of identifiers of the comics in which the character appears.
+    - `__v`: Version of the document in the database.
+
+### Example
+
+Request:
+
+```
+GET /series
+```
+
+Response:
+
+```json
+[
+	{
+		"_id": "662eac900eeeb1009bdfbb4b",
+		"id": 489,
+		"title": "1602 (2003 - 2004)",
+		"description": "Award-winning writer Neil Gaiman teams with artist Andy Kubert to re-imagine the Marvel Universe in the year 1602! It's Spider-Man, the X-Men, Nick Fury, Doctor Strange, Daredevil and more as you'd never think to imagine them in an utterly unique and thrilling tale of high adventure!",
+		"startYear": 2003,
+		"endYear": 2004,
+		"thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/9/d0/51926fde9c18a.jpg",
+		"__v": 0
+	}
+]
+```
+
 ## Characters
 
 ### `GET /characters`
