@@ -276,7 +276,7 @@ PUT /characters
 
 Response:
 
-![Untitled](API%20Marvel-1602%20Documentation%2066cfc43a55b042629e66ffca0f0d7fd9/Untitled.png)
+![Untitled](https://http.cat/images/200.jpg)
 
 ### `DELETE /characters/id`
 
@@ -300,7 +300,7 @@ DELETE /characters/id
 
 Response:
 
-![Untitled](API%20Marvel-1602%20Documentation%2066cfc43a55b042629e66ffca0f0d7fd9/Untitled.png)
+![Untitled](https://http.cat/images/200.jpg)
 
 ## Creators
 
@@ -565,7 +565,7 @@ PUT /characters
 
 Response:
 
-![Untitled](API%20Marvel-1602%20Documentation%2066cfc43a55b042629e66ffca0f0d7fd9/Untitled.png)
+![Untitled](https://http.cat/images/200.jpg)
 
 ### `DELETE /creators/id`
 
@@ -589,7 +589,7 @@ DELETE /creators/id
 
 Response:
 
-![Untitled](API%20Marvel-1602%20Documentation%2066cfc43a55b042629e66ffca0f0d7fd9/Untitled.png)
+![Untitled](https://http.cat/images/200.jpg)
 
 ## Comics
 
@@ -910,7 +910,7 @@ DELETE /comics/id
 
 Response:
 
-![Untitled](API%20Marvel-1602%20Documentation%2066cfc43a55b042629e66ffca0f0d7fd9/Untitled.png)
+![Untitled](https://http.cat/images/200.jpg)
 
 # Errors
 
@@ -918,16 +918,16 @@ This API uses the following error codes:
 
 - `400 Bad Request`: The request was malformed or missing required parameters.
 
-![Untitled](API%20Marvel-1602%20Documentation%2066cfc43a55b042629e66ffca0f0d7fd9/Untitled%201.png)
+![Untitled](https://http.cat/images/400.jpg)
 
 - `401 Unauthorized`: The API key provided was invalid or missing.
 
-![Untitled](API%20Marvel-1602%20Documentation%2066cfc43a55b042629e66ffca0f0d7fd9/Untitled%202.png)
+![Untitled](https://http.cat/images/401.jpg)
 
 - `404 Not Found`: The requested resource was not found.
 
-![Untitled](API%20Marvel-1602%20Documentation%2066cfc43a55b042629e66ffca0f0d7fd9/Untitled%203.png)
+![Untitled](https://http.cat/images/404.jpg)
 
 - `500 Internal Server Error`: An unexpected error occurred on the server.
 
-![Untitled](API%20Marvel-1602%20Documentation%2066cfc43a55b042629e66ffca0f0d7fd9/Untitled%204.png)
+![Untitled](https://http.cat/images/500.jpg)
