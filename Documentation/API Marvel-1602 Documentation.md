@@ -931,3 +931,5 @@ This API uses the following error codes:
 - `500 Internal Server Error`: An unexpected error occurred on the server.
 
 ![Untitled](https://http.cat/images/500.jpg)
+
+All rights reserved ©Disney 2024.
