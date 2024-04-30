@@ -22,7 +22,7 @@ This project aims to help you:
 
 📑 Documentation 📑
 
-In this repository, there is a folder named "Documentation" where the documentation of the API developed in the project is available.
+In this repository, there is a folder named [Documentation](Documentation.md) where the documentation of the API developed in the project is available.
 
 ## 🛠️ Technologies Used 🛠️
 
